@@ -28,8 +28,8 @@ const SignIn = () => {
                     </MainLogoContainer>
 
                     <Form onSubmit={handleSubmit}>
-                        <InputBlock type="email" name="EMAIL:" placeholder="digite seu email" />
-                        <InputBlock type="password" name="SENHA:" placeholder="digite sua senha" />
+                        <InputBlock type="email" name="email" labelContent="EMAIL:" placeholder="digite seu email" />
+                        <InputBlock type="password" name="password" labelContent="SENHA:" placeholder="digite sua senha" />
 
                         <Button>ENTRA</Button>
                     </Form>
