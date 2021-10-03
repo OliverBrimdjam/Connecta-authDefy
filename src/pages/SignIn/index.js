@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { FormContainer, MainLogoContainer, SignInRoot } from './styles';
+import { Form } from '@unform/web';
 
 import InputBlock from '../../components/InputBlock';
 import Button from '../../components/Button';
@@ -22,12 +23,12 @@ const SignIn = () => {
                         <img src={MainLogo} alt="Logo Principal" />
                     </MainLogoContainer>
 
-                    <form>
+                    <Form>
                         <InputBlock type="email" name="EMAIL:" placeholder="digite seu email" />
                         <InputBlock type="password" name="SENHA:" placeholder="digite sua senha" />
 
                         <Button>ENTRA</Button>
-                    </form>
+                    </Form>
 
                     <img src={SecondaryLogo} alt="Logo Secundária" />
                     <p>Esqueceu a sua senha, <a href="">Clique Aqui</a>.</p>
