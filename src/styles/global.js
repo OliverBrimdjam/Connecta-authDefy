@@ -44,4 +44,8 @@ export default createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+
+    *{
+        font-family: sans-serif; //FIXME: change font family to "montserrat, sans-serif"
+    }
 `;
