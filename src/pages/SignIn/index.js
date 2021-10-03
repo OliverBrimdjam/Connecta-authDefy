@@ -1,24 +1,49 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { FormContainer, MainLogoContainer, SignInRoot } from './styles';
 import { Form } from '@unform/web';
 
 import InputBlock from '../../components/InputBlock';
 import Button from '../../components/Button';
 
-import AuthContext from '../../context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import MainLogo from '../../assets/Logo-4.png';
 import SecondaryLogo from '../../assets/logo-connecta-vermelha.png';
 import PageRoot from '../../components/PageRoot';
 import GlobalContainer from '../../components/GlobalContainer';
+import * as Yup from 'yup';
+import apiAbstraction from '../../services/apiAbstraction';
 
 const SignIn = () => {
-    const auth = useContext(AuthContext);
-    console.log(auth);
+    const { signIn } = useContext(AuthContext);
 
-
-    const handleSubmit = useCallback((data) => {
-        console.log(data);
+    //starting backend values into localStorage;
+    useEffect(() => {
+        apiAbstraction.lsStartConfig();
     }, []);
+
+
+    const handleSubmit = useCallback(async (data) => {
+        console.log(data);
+        try {
+            const validationConfig = Yup.object().shape({
+                email: Yup.string().required('E-mail é campo obrigatório.').email('Digite e-mail válido.'),
+                password: Yup.string().required('Senha é campo obrigatório.'),
+            });
+
+            await validationConfig.validate(data, {
+                abortEarly: false,
+            });
+
+            signIn({
+                email: data.email,
+                password: data.password,
+            });
+            apiAbstraction.lsGet();
+        } catch (err) {
+            console.log(err);
+            alert(err);
+        }
+    }, [signIn]);
 
     return (
         <PageRoot>

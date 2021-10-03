@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
-import AuthContext from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 
@@ -11,9 +11,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AuthContext.Provider value={{ name: 'teste' }}>
+        <AuthProvider>
           <Routes />
-        </AuthContext.Provider>
+        </AuthProvider>
       </BrowserRouter>
 
       <GlobalStyle />
