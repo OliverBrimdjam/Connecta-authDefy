@@ -1,29 +1,5 @@
 import styled from 'styled-components';
 
-export const SignInRoot = styled.div`
-    display: flex;
-    place-content: center;
-
-    background-color: #B0BCC9;
-    width: 100%;
-    min-height: 100vh;
-`;
-
-export const GlobalContainer = styled.main`
-    display: flex;
-    justify-content: center;
-
-    width: 80%;
-    max-width: 1440px;
-    min-width: 320px;
-    /* height: 90vh; */
-    height: fit-content;
-    
-
-    background-color: #ffffff;
-    border-radius: 6px;
-`;
-
 export const MainLogoContainer = styled.div`
     display: flex;
     place-content: center;
@@ -32,10 +8,8 @@ export const MainLogoContainer = styled.div`
     padding: 1em;
     margin: 3em 0 3em 0;
 
-
     background-color: #12767c;
     border-radius: 15px;
-
 `;
 
 export const FormContainer = styled.section`
@@ -47,7 +21,6 @@ export const FormContainer = styled.section`
     width: 100%;
     padding: 2em;
     height: fit-content;
-    /* min-width: 320px; */
     max-width: 400px;
     margin: 1em 0 1em 0;
 

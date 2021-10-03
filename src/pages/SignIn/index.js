@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FormContainer, GlobalContainer, MainLogoContainer, SignInRoot } from './styles';
+import { FormContainer, MainLogoContainer, SignInRoot } from './styles';
 
 import InputBlock from '../../components/InputBlock';
 import Button from '../../components/Button';
@@ -7,16 +7,15 @@ import Button from '../../components/Button';
 import AuthContext from '../../context/AuthContext';
 import MainLogo from '../../assets/Logo-4.png';
 import SecondaryLogo from '../../assets/logo-connecta-vermelha.png';
-
-
+import PageRoot from '../../components/PageRoot';
+import GlobalContainer from '../../components/GlobalContainer';
 
 const SignIn = () => {
-
     const auth = useContext(AuthContext);
     console.log(auth);
 
     return (
-        <SignInRoot>
+        <PageRoot>
             <GlobalContainer>
                 <FormContainer>
                     <MainLogoContainer>
@@ -34,7 +33,7 @@ const SignIn = () => {
                     <p>Esqueceu a sua senha, <a href="">Clique Aqui</a>.</p>
                 </FormContainer>
             </GlobalContainer>
-        </SignInRoot>
+        </PageRoot>
     );
 }
 
