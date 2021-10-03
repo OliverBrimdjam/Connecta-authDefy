@@ -15,6 +15,10 @@ const SignIn = () => {
     const auth = useContext(AuthContext);
     console.log(auth);
 
+    function handleSubmit(data) {
+        console.log(data);
+    }
+
     return (
         <PageRoot>
             <GlobalContainer>
@@ -23,7 +27,7 @@ const SignIn = () => {
                         <img src={MainLogo} alt="Logo Principal" />
                     </MainLogoContainer>
 
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <InputBlock type="email" name="EMAIL:" placeholder="digite seu email" />
                         <InputBlock type="password" name="SENHA:" placeholder="digite sua senha" />
 
