@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { FormContainer, MainLogoContainer, SignInRoot } from './styles';
 import { Form } from '@unform/web';
 
@@ -15,9 +15,10 @@ const SignIn = () => {
     const auth = useContext(AuthContext);
     console.log(auth);
 
-    function handleSubmit(data) {
+
+    const handleSubmit = useCallback((data) => {
         console.log(data);
-    }
+    }, []);
 
     return (
         <PageRoot>
