@@ -5,7 +5,8 @@ import { useField } from '@unform/core';
 const InputBlock = (props) => {
     const { name, placeholder, type, labelContent } = props;
     const inputRef = useRef(null);
-    const { fieldName, defaultValue, error, registerField } = useField(name);
+    // const { fieldName, defaultValue, error, registerField } = useField(name);
+    const { fieldName, registerField } = useField(name);
 
     useEffect(() => {
         registerField({

@@ -6,7 +6,6 @@ const apiAbstraction = {
     },
     lsSet: (key, data) => {
         localStorage.setItem(key, data);
-        console.log("lsSet: " + key + "/" + data);
     },
     lsGet: (key) => {
         return localStorage.getItem(key);
@@ -15,11 +14,10 @@ const apiAbstraction = {
         const storedEmail = apiAbstraction.lsGet('storedEmail');
         const storedPassword = apiAbstraction.lsGet('storedPassword');
 
-        if (email == storedEmail && password == storedPassword) {
+        if (email === storedEmail && password === storedPassword) {
             const storedToken = apiAbstraction.lsGet('storedToken');
             return storedToken;
         } else {
-            console.log('E-mail e/ou senha não cadastrado');
             alert('E-mail e/ou senha não cadastrado');
 
             return null;
