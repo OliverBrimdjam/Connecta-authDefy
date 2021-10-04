@@ -1,18 +1,21 @@
-import React, { createContext, useCallback } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 import apiAbstraction from '../services/apiAbstraction';
+import localStorageService from '../services/localStorageService';
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
+    const [token, setToken] = useState('');
+
     const signIn = useCallback(async ({ email, password }) => {
-        console.log(email);
         const response = await apiAbstraction.post(email, password);
 
-        console.log(response);
+        localStorageService.set('lsToken', response);
+        setToken(response);
     }, []);
 
     return (
-        <AuthContext.Provider value={{ name: 'diego', signIn }}>
+        <AuthContext.Provider value={{ token: token, signIn }}>
             {children}
         </AuthContext.Provider>
     );

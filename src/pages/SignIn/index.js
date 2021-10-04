@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect } from 'react';
-import { FormContainer, MainLogoContainer, SignInRoot } from './styles';
+import { FormContainer, MainLogoContainer } from './styles';
 import { Form } from '@unform/web';
 
 import InputBlock from '../../components/InputBlock';
@@ -12,9 +12,11 @@ import PageRoot from '../../components/PageRoot';
 import GlobalContainer from '../../components/GlobalContainer';
 import * as Yup from 'yup';
 import apiAbstraction from '../../services/apiAbstraction';
+import { useHistory } from 'react-router';
 
 const SignIn = () => {
     const { signIn } = useContext(AuthContext);
+    let history = useHistory();
 
     //starting backend values into localStorage;
     useEffect(() => {
@@ -23,7 +25,6 @@ const SignIn = () => {
 
 
     const handleSubmit = useCallback(async (data) => {
-        console.log(data);
         try {
             const validationConfig = Yup.object().shape({
                 email: Yup.string().required('E-mail é campo obrigatório.').email('Digite e-mail válido.'),
@@ -34,11 +35,11 @@ const SignIn = () => {
                 abortEarly: false,
             });
 
-            signIn({
+            await signIn({
                 email: data.email,
                 password: data.password,
             });
-            apiAbstraction.lsGet();
+            history.push('/SignInSuccess');
         } catch (err) {
             console.log(err);
             alert(err);

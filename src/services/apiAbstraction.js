@@ -1,4 +1,3 @@
-
 const apiAbstraction = {
     lsStartConfig: () => {
         apiAbstraction.lsSet('storedEmail', 'teste@teste.com');
