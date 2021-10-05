@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import { useContext } from 'react/cjs/react.development';
+import { useContext } from 'react';
 import GlobalContainer from '../../components/GlobalContainer';
 import PageRoot from '../../components/PageRoot';
 import { AuthContext } from '../../context/AuthContext';
